@@ -1,12 +1,14 @@
 import { View,  Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import image1 from './image/burgersatu.png'
 import image2 from './image/burgerdua.png'
+import image3 from './image/burger3.png'
+import image4 from './image/burger4.png'
 import image5 from './image/gambarmakanan.png'
 
 const Beranda = () => {
   return(
     <ScrollView>
-      <View style={{ padding: 30, backgroundColor: '#fafafa' }}>
+      <View style={styles.Container}>
         <View style={styles.Header}>
           <Text>Header</Text>
         </View>
@@ -29,17 +31,7 @@ const Beranda = () => {
                   fontSize: 16,
                 }}>$40</Text>
 
-                <View style={{
-                  backgroundColor: '#ff8800',
-                  alignSelf: 'flex-end',
-                  borderRadius: 100,
-                  width: 30,
-                  height: 30,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  bottom: 10,
-                  right: 10
-                }}>
+                <View style={styles.Containertomboltambah}>
                   <TouchableOpacity>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
@@ -62,17 +54,7 @@ const Beranda = () => {
                   fontSize: 16,
                 }}>$60</Text>
 
-                <View style={{
-                  backgroundColor: '#ff8800',
-                  alignSelf: 'flex-end',
-                  borderRadius: 100,
-                  width: 30,
-                  height: 30,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  bottom: 10,
-                  right: 10
-                }}>
+                <View style={styles.Containertomboltambah}>
                   <TouchableOpacity>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
@@ -81,40 +63,35 @@ const Beranda = () => {
         </View>
         <View style={styles.Menubarisdua}>
           <View style={styles.Menusatu}>
-              <Image source={image1} style={styles.Gambar1}/>
-                <Text style={styles.Teks1image1}>Burger Bistro</Text>
+              <Image source={image3} style={styles.Gambar3}/>
+                <Text style={{
+                  bottom: 30,
+                  marginLeft: 10,
+                  fontWeight: 600,
+                  fontSize: 16,
+                }}>Burger Bistro</Text>
 
                 <Text style={{
-                  bottom: 33,
+                  bottom: 25,
                   marginLeft: 10,
                   fontSize: 13
                 }}>Rose Garden</Text>
 
                 <Text style={{
-                  bottom: 26, 
+                  bottom: 16, 
                   marginLeft: 10,
                   fontWeight: 600,
                   fontSize: 16,
                 }}>$40</Text>
 
-                <View style={{
-                  backgroundColor: '#ff8800',
-                  alignSelf: 'flex-end',
-                  borderRadius: 100,
-                  width: 30,
-                  height: 30,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  bottom: 10,
-                  right: 10
-                }}>
+                <View style={styles.Containertomboltambah}>
                   <TouchableOpacity>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
                 </View>
           </View>
           <View style={styles.Menudua}>
-            <Image source={image1} style={styles.Gambar1}/>
+            <Image source={image4} style={styles.Gambar1}/>
                 <Text style={styles.Teks1image2}>Burger Bistro</Text>
 
                 <Text style={{
@@ -130,17 +107,7 @@ const Beranda = () => {
                   fontSize: 16,
                 }}>$40</Text>
 
-                <View style={{
-                  backgroundColor: '#ff8800',
-                  alignSelf: 'flex-end',
-                  borderRadius: 100,
-                  width: 30,
-                  height: 30,
-                  position: 'absolute',
-                  justifyContent: 'center',
-                  bottom: 10,
-                  right: 10
-                }}>
+                <View style={styles.Containertomboltambah}>
                   <TouchableOpacity>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
@@ -150,6 +117,11 @@ const Beranda = () => {
         <View style={{ marginTop: 40 }}>
           <Text style={{ fontWeight: 600, fontSize: 20 }}>Open Resturants</Text>
           <Image source={image5} style={styles.Gambar5}/>
+          <Text style={{ 
+            fontWeight: 600, 
+            fontSize: 20,
+            marginTop: 20
+             }}>Tasty Treat Gallery</Text>
         </View>
       </View>
     </ScrollView>
@@ -159,10 +131,28 @@ const Beranda = () => {
 export default Beranda
 
 const styles = StyleSheet.create({
+  Container: {
+    padding: 30, 
+    backgroundColor: '#fafafa',
+    height: 1000
+  },
+
   Header: {
     marginTop: 40,
     marginBottom: 50,
     flexDirection: 'row',
+  },
+
+  Containertomboltambah: {
+    backgroundColor: '#ff8800',
+    alignSelf: 'flex-end',
+    borderRadius: 100,
+    width: 30,
+    height: 30,
+    position: 'absolute',
+    justifyContent: 'center',
+    bottom: 10,
+    right: 10
   },
 
   Menubarissatu: {
@@ -242,6 +232,14 @@ const styles = StyleSheet.create({
     width: 95, 
     height: 90, 
     bottom: 45,
+    alignSelf: 'center',
+    position: 'relative', 
+  },
+
+  Gambar3: {
+    width: 95, 
+    height: 80, 
+    bottom: 40,
     alignSelf: 'center',
     position: 'relative', 
   },
