@@ -1,5 +1,5 @@
 import React, {useState} from 'react'; 
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, Alert } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
 import image1 from './image/gpthpth.png'
@@ -13,6 +13,35 @@ const Login = () => {
   const [email,setEmail] = useState ('');
   const [password,setPassword] = useState ('');
 
+  const handleLogin = async () => {
+      if (!email || !password) {
+        Alert.alert("Error", "Email dan password wajib diisi");
+        return;
+      }
+  
+      try {
+        const response = await fetch("http://10.10.57.239:5000/login", { // kalau emulator Android
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email, password: password })
+        });
+  
+        const data = await response.json();
+  
+        if (response.ok) {
+          Alert.alert("Sukses", "Login berhasil ✅");
+          // TODO: simpan token ke AsyncStorage biar bisa dipake di screen lain
+          // AsyncStorage.setItem("token", data.token);
+          navigation.navigate("Beranda");
+        } else {
+          Alert.alert("Gagal", data.message || "Login gagal");
+        }
+      } catch (err) {
+        console.error(err);
+        Alert.alert("Error", "Tidak bisa konek ke server");
+      }
+    };
+
   return(
     <View style={styles.Container}>
       <Image style={styles.Gambarsatu} source={image1}/>
@@ -20,27 +49,31 @@ const Login = () => {
       <Text style={styles.Deskripsi}>Please sign in to your existing account</Text>
 
       <View style={styles.Containerbottom}>
-        <Text style={{ fontSize: 15, fontWeight: 600 }}>EMAIL</Text>
-        <TextInput style={styles.Inputemail} value={email} onChangeText={(text) => setEmail(text)} placeholder='Masukkan email Anda...'/>
+        <Text style={{ fontSize: 15, fontWeight: "600" }}>EMAIL</Text>
+        <TextInput
+          style={styles.Inputemail}
+          value={email}
+          onChangeText={setEmail}
+          placeholder='Masukkan email Anda...'
+        />
 
-        <Text style={{ fontSize: 15, fontWeight: 600, marginTop: 30 }}>PASSWORD</Text>
-        <TextInput style={styles.Inputemail} value={password} onChangeText={(text) => setPassword(text)} secureTextEntry={true} 
-        placeholder='Masukkan password Anda'/>
+        <Text style={{ fontSize: 15, fontWeight: "600", marginTop: 30 }}>PASSWORD</Text>
+        <TextInput
+          style={styles.Inputemail}
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+          placeholder='Masukkan password Anda'
+        />
 
-        <View style={{ flexDirection: 'row', marginTop: 30 }}>
-          <Text style={{ marginRight: 146, fontWeight: 600 }}>Remember Me</Text>
-            <TouchableOpacity>
-             <Text style={{ fontWeight: 600, color: '#ff7733' }}>Forgot Password</Text>
-            </TouchableOpacity>
-        </View>
         <View style={styles.Tombollogin}>
-          <TouchableOpacity onPress={()=> navigation.navigate('Beranda')}>
-            <Text style={{ color: 'white', fontWeight: 600, textAlign: 'center', padding: 20 }}>LOG IN</Text>
+          <TouchableOpacity onPress={handleLogin}>
+            <Text style={{ color: 'white', fontWeight: "600", textAlign: 'center', padding: 20 }}>LOG IN</Text>
           </TouchableOpacity>
         </View>
         <View style={{ marginTop: 30, flexDirection: 'row' }}>
           <Text style={{ marginLeft: 69, marginRight: 10 }}>Don't have an account? </Text>
-          <TouchableOpacity onPress={()=> navigation.navigate('Signup')}>
+          <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
             <Text style={{ color: '#ff8800', fontWeight: 600, textAlign: 'center' }}>SIGN UP</Text>
           </TouchableOpacity>
         </View>
