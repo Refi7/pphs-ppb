@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -13,6 +14,18 @@ import image9 from './image/plus.png';
 
 const Pagedetail = () => {
     const navigation = useNavigation();
+    
+    // State untuk jumlah item
+    const [jumlah, setJumlah] = useState(1);
+    const hargaPerItem = 32; // harga satuan
+
+    const tambah = () => {
+        setJumlah(prev => prev + 1);
+    }
+
+    const kurang = () => {
+        setJumlah(prev => (prev > 1 ? prev - 1 : 1)); // minimal 1
+    }
 
     return (
         
@@ -114,16 +127,16 @@ const Pagedetail = () => {
                             <Text style={{
                                 fontWeight: 600,
                                 fontSize: 20
-                            }}>$ 32</Text>
+                            }}>${hargaPerItem * jumlah} </Text>
 
                             <View style={styles.Conatinertambahbarang}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={kurang}>
                                     <View style={styles.Containerminus}>
                                         <Image source={image8} style={{width: 17, height: 17, alignSelf: 'center'}}/>
                                     </View>
                                 </TouchableOpacity>
-                                <Text style={{color: 'white', textAlignVertical: 'center'}}>2</Text>
-                                <TouchableOpacity>
+                                <Text style={{color: 'white', textAlignVertical: 'center'}}>{jumlah}</Text>
+                                <TouchableOpacity onPress={tambah}>
                                     <View style={styles.Containerminus}>
                                         <Image source={image9} style={{width: 17, height: 17, alignSelf: 'center'}}/>
                                     </View>

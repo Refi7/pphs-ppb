@@ -10,11 +10,11 @@ const Router = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
 
+          <Stack.Screen name="Pagedetail" component={Pagedetail}/> 
            
           <Stack.Screen name="Pagesatu" component={Pagesatu}/> 
           <Stack.Screen name="Pagedua" component={Pagedua}/> 
           <Stack.Screen name="Login" component={Login}/>
-          <Stack.Screen name="Pagedetail" component={Pagedetail}/> 
           <Stack.Screen name="Beranda" component={Beranda}/> 
         </Stack.Navigator>
     );
