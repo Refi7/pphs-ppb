@@ -1,8 +1,8 @@
 import { View,  Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
-import image1 from './image/burgersatu.png'
-import image2 from './image/burgerdua.png'
+import image1 from './image/burger1.png'
+import image2 from './image/burger2.png'
 import image3 from './image/burger3.png'
 import image4 from './image/burger4.png'
 import image5 from './image/gambarmakanan.png'
@@ -10,6 +10,9 @@ import image6 from './image/back_icon.png';
 import image7 from './image/logolist.png';
 import image8 from './image/logocari.png';
 import image9 from './image/menu.png';
+import image10 from './image/star.png';
+import image11 from './image/truc.png';
+import image12 from './image/time.png';
 
 const Beranda = () => {
   const navigation = useNavigation();
@@ -48,21 +51,21 @@ const Beranda = () => {
         <Text style={{ fontSize: 25,fontWeight: 600 }}>Popular Burger</Text>
         <View style={styles.Menubarissatu}>
           <View style={styles.Menusatu}>
-              <Image source={image1} style={styles.Gambar1}/>
+              <Image source={image2} style={styles.Gambar1}/>
                 <Text style={styles.Teks1image1}>Burger Bistro</Text>
 
                 <Text style={{
                   bottom: 33,
-                  marginLeft: 10,
+                  marginLeft: 15,
                   fontSize: 13
                 }}>Rose Garden</Text>
 
                 <Text style={{
                   bottom: 26, 
-                  marginLeft: 10,
+                  marginLeft: 15,
                   fontWeight: 600,
                   fontSize: 16,
-                }}>$40</Text>
+                }}>$12</Text>
 
                 <View style={styles.Containertomboltambah}>
                   <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail')}>
@@ -71,24 +74,24 @@ const Beranda = () => {
                 </View>
           </View>
           <View style={styles.Menudua}>
-            <Image source={image2} style={styles.Gambar1}/>
+            <Image source={image1} style={styles.Gambar1}/>
                 <Text style={styles.Teks1image2}>Smokin' Burger</Text>
 
                 <Text style={{
                   bottom: 33,
-                  marginLeft: 10,
+                  marginLeft: 15,
                   fontSize: 13
                 }}>Cafenio Restaurant</Text>
 
                 <Text style={{
                   bottom: 26, 
-                  marginLeft: 10,
+                  marginLeft: 15,
                   fontWeight: 600,
                   fontSize: 16,
-                }}>$60</Text>
+                }}>$34</Text>
 
                 <View style={styles.Containertomboltambah}>
-                  <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail')}>
+                  <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail2')}>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
                 </View>
@@ -99,26 +102,25 @@ const Beranda = () => {
               <Image source={image3} style={styles.Gambar3}/>
                 <Text style={{
                   bottom: 30,
-                  marginLeft: 10,
+                  marginLeft: 15,
                   fontWeight: 600,
                   fontSize: 16,
-                }}>Burger Bistro</Text>
+                }}>Buffalo Burgers</Text>
 
                 <Text style={{
                   bottom: 25,
-                  marginLeft: 10,
+                  marginLeft: 15,
                   fontSize: 13
-                }}>Rose Garden</Text>
+                }}>Kaji Firm Kitchen</Text>
 
                 <Text style={{
                   bottom: 16, 
-                  marginLeft: 10,
+                  marginLeft: 15,
                   fontWeight: 600,
                   fontSize: 16,
-                }}>$40</Text>
-
+                }}>$28</Text>
                 <View style={styles.Containertomboltambah}>
-                  <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail')}>
+                  <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail3')}>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
                 </View>
@@ -129,19 +131,19 @@ const Beranda = () => {
 
                 <Text style={{
                   bottom: 33,
-                  marginLeft: 10,
+                  marginLeft: 15,
                   fontSize: 13
-                }}>Rose Garden</Text>
+                }}>Bullseye Burgers</Text>
 
                 <Text style={{
                   bottom: 26, 
-                  marginLeft: 10,
+                  marginLeft: 15,
                   fontWeight: 600,
                   fontSize: 16,
-                }}>$40</Text>
+                }}>$53</Text>
 
                 <View style={styles.Containertomboltambah}>
-                  <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail')}>
+                  <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail4')}>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
                 </View>
@@ -155,7 +157,23 @@ const Beranda = () => {
             fontSize: 20,
             marginTop: 20
              }}>Tasty Treat Gallery</Text>
+
+              <View style={{flexDirection: 'row', marginTop: 10}}>
+                <View style={{ flexDirection: 'row'}}>
+                    <Image source={image10} style={styles.Gambarstar}/>
+                    <Text style={{marginTop: 5, fontWeight: 600, marginLeft: 10}}>4.7</Text>
+                </View>
+                <View style={{flexDirection: 'row', marginLeft: 75}}>
+                    <Image source={image11} style={styles.Gambarstar}/>
+                    <Text style={{marginTop: 5, fontWeight: 600, marginLeft: 10}}>Free</Text>
+                </View>
+                <View style={{flexDirection: 'row', marginLeft: 58}}>
+                    <Image source={image12} style={styles.Gambarstar}/>
+                    <Text style={{marginTop: 5, fontWeight: 600, marginLeft: 10}}>20 menit</Text>
+                </View>
+                </View>
         </View>
+        
       </View>
     </ScrollView>
   )
@@ -165,9 +183,13 @@ export default Beranda
 
 const styles = StyleSheet.create({
   Container: {
-    padding: 30, 
+
+    paddingTop: 15, 
+    paddingLeft: 22, 
+    paddingRight: 22, 
+    paddingBottom: 22, 
     backgroundColor: '#fafafa',
-    height: 1000
+    height: 1030
   },
 
   Header: {
@@ -190,17 +212,19 @@ const styles = StyleSheet.create({
 
   Menubarissatu: {
     flexDirection: 'row',
-    marginTop: 20
+    marginTop: 15,
+    justifyContent: 'space-between'
   },
 
   Menubarisdua: {
     flexDirection: 'row',
-    marginTop: 20
+    marginTop: 10,
+    justifyContent: 'space-between'
   },
 
   Menusatu: {
-    width: 150, 
-    height: 130,
+    width: 160, 
+    height: 135,
     backgroundColor: 'white',
     borderRadius: 13, 
     marginTop: 60, 
@@ -216,8 +240,8 @@ const styles = StyleSheet.create({
   }, 
 
   Menudua: {
-    width: 150, 
-    height: 130,
+    width: 160, 
+    height: 140,
     backgroundColor: 'white',
     marginLeft: 25,
     borderRadius: 13, 
@@ -256,7 +280,8 @@ const styles = StyleSheet.create({
     height: 45,
     justifyContent: 'center',
     borderRadius: 100, 
-    marginLeft: 35
+    marginLeft: 45,
+    
   },
 
   Containericoncari2: {
@@ -265,7 +290,8 @@ const styles = StyleSheet.create({
     height: 45,
     justifyContent: 'center',
     borderRadius: 100,
-    marginLeft: 12
+    marginLeft: 15,
+    
   },
 
 
@@ -273,7 +299,7 @@ const styles = StyleSheet.create({
 
   Teks1image1: {
     bottom: 38,
-    marginLeft: 10,
+    marginLeft: 15,
     fontWeight: 600,
     fontSize: 16,
   },
@@ -288,7 +314,7 @@ const styles = StyleSheet.create({
 
   Teks1image2: {
     bottom: 38,
-    marginLeft: 10,
+    marginLeft: 15,
     fontWeight: 600,
     fontSize: 16,
   },
@@ -314,7 +340,7 @@ const styles = StyleSheet.create({
 
   Gambar5: {
     width: '100%',
-    height: '45%',
+    height: 200,
     borderRadius: 15,
     marginTop: 20
   },
@@ -328,5 +354,15 @@ const styles = StyleSheet.create({
     width: 25, 
     height: 25,
     alignSelf: 'center'
-  }
+  },
+
+  Iconbottom: {
+    width: 25,
+    height: 25
+  },
+
+  Gambarstar: {
+    width: 25,
+    height: 25
+  },
 })
