@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'reac
 import { useNavigation } from '@react-navigation/native';
 
 import image1 from './image/back_icon.png';
-import image2 from './image/pizza.png';
+import image2 from './image/burgersatu.png'
 import image3 from './image/hat.png';
 import image4 from './image/star.png';
 import image5 from './image/truc.png';
@@ -37,16 +37,16 @@ const Pagedetail = () => {
                             fontWeight: 600
                         }}>Uttora Coffe House</Text>
                     </View>
-                    <View style={{ marginTop: 20 }}>
+                    <View style={{ marginTop: 15 }}>
                         <Text style={{
                             fontSize: 25,
                             fontWeight: 600,
                             marginBottom: 10
-                        }}>Pizza Calzone European</Text>
+                        }}>Burger Calzone European</Text>
                         <Text style={{
                             fontSize: 17,
                             color: '#c0c0c0'
-                        }}>Prosciutto e funghi is a pizza variety that is topped with tomato sauce</Text>
+                        }}>Prosciutto e funghi is a Burger variety that is topped with tomato sauce</Text>
                     </View>
                     <View style={{flexDirection: 'row', marginTop: 10}}>
                         <View style={{ flexDirection: 'row'}}>
@@ -110,7 +110,7 @@ const Pagedetail = () => {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.Conatinerdeskripsibottom}>
-                        <View style={{flexDirection: 'row', padding: 20, justifyContent: 'space-between'}}>
+                        <View style={{flexDirection: 'row', padding: 18, justifyContent: 'space-between'}}>
                             <Text style={{
                                 fontWeight: 600,
                                 fontSize: 20
@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
         height: 21,
         backgroundColor: '#abababff',
         borderRadius: 50,
-
         justifyContent: 'center',
     },
 
@@ -172,20 +171,20 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         justifyContent: 'space-between',
         flexDirection: 'row',
-        padding: 10
+        padding: 10,
     },
 
     Conatinerdeskripsibottom: {
         backgroundColor: '#f2f2f2',
         width: '100%',
-        height: 150,
+        height: 155,
         marginTop: 10,
         borderRadius: 25
     },
 
     Tombolback: {
         backgroundColor: '#dcdcdc',
-        padding: 18,
+        padding: 15,
         borderRadius: 100,
     },
 
@@ -215,16 +214,15 @@ const styles = StyleSheet.create({
         height: 64,
         backgroundColor: '#e87f15ff',
         alignSelf: 'center',
-        borderRadius: 15,
+        borderRadius: 18,
         justifyContent: 'center',
-        marginTop: 6
     },
 
     Tekstomboladd: {
         color: 'white',
         textAlign: 'center',
         fontWeight: 600,
-        fontSize: 16
+        fontSize: 16,
     },
 
 
@@ -256,10 +254,10 @@ const styles = StyleSheet.create({
 
     Gambarmenu: {
         flexDirection: 'row',
-        width: '49%',
+        
         height: '98%',
         alignSelf: 'center',
-        bottom: 20,
+        bottom: 30,
     },
 
     Gambarhat: {
