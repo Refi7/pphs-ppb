@@ -1,5 +1,5 @@
 import React, {useState} from 'react'; 
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
 import image1 from './image/gpthpth.png'
@@ -10,42 +10,46 @@ import image4 from './image/apple.png'
 
 const Login = () => {
   const navigation = useNavigation();
+  const [nama,setNama] = useState ('');
   const [email,setEmail] = useState ('');
   const [password,setPassword] = useState ('');
+  const [password2,setPassword2] = useState ('');
 
   return(
     <View style={styles.Container}>
       <Image style={styles.Gambarsatu} source={image1}/>
-      <Text style={styles.Tekslogin}>LOGIN</Text>
-      <Text style={styles.Deskripsi}>Please sign in to your existing account</Text>
+      <Text style={styles.Tekslogin}>SIGN UP</Text>
+      <Text style={styles.Deskripsi}>please register your account</Text>
 
       <View style={styles.Containerbottom}>
-        <Text style={{ fontSize: 15, fontWeight: 600 }}>EMAIL</Text>
+        <Text style={{ fontSize: 15, fontWeight: 600 }}>NAMA</Text>
+        <TextInput style={styles.Inputemail} value={nama} onChangeText={(text) => setNama(text)} placeholder='Masukkan nama Anda...'/>
+
+        <Text style={{ fontSize: 15, fontWeight: 600, marginTop: 20 }}>EMAIL</Text>
         <TextInput style={styles.Inputemail} value={email} onChangeText={(text) => setEmail(text)} placeholder='Masukkan email Anda...'/>
 
-        <Text style={{ fontSize: 15, fontWeight: 600, marginTop: 30 }}>PASSWORD</Text>
+        <Text style={{ fontSize: 15, fontWeight: 600, marginTop: 20 }}>PASSWORD</Text>
         <TextInput style={styles.Inputemail} value={password} onChangeText={(text) => setPassword(text)} secureTextEntry={true} 
         placeholder='Masukkan password Anda'/>
 
-        <View style={{ flexDirection: 'row', marginTop: 30 }}>
-          <Text style={{ marginRight: 146, fontWeight: 600 }}>Remember Me</Text>
-            <TouchableOpacity>
-             <Text style={{ fontWeight: 600, color: '#ff7733' }}>Forgot Password</Text>
-            </TouchableOpacity>
-        </View>
+        <Text style={{ fontSize: 15, fontWeight: 600, marginTop: 20 }}>ENTER PASSWORD AGAIN</Text>
+        <TextInput style={styles.Inputemail} value={password2} onChangeText={(text) => setPassword2(text)} secureTextEntry={true} 
+        placeholder='Masukkan password Anda'/>
+
+        
         <View style={styles.Tombollogin}>
-          <TouchableOpacity onPress={()=> navigation.navigate('Beranda')}>
-            <Text style={{ color: 'white', fontWeight: 600, textAlign: 'center', padding: 20 }}>LOG IN</Text>
+          <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
+            <Text style={{ color: 'white', fontWeight: 600, textAlign: 'center', padding: 20 }}>SIGN UP</Text>
           </TouchableOpacity>
         </View>
-        <View style={{ marginTop: 30, flexDirection: 'row' }}>
-          <Text style={{ marginLeft: 69, marginRight: 10 }}>Don't have an account? </Text>
-          <TouchableOpacity onPress={()=> navigation.navigate('Signup')}>
-            <Text style={{ color: '#ff8800', fontWeight: 600, textAlign: 'center' }}>SIGN UP</Text>
+        <View style={{ marginTop: 25, flexDirection: 'row' }}>
+          <Text style={{ marginLeft: 69, marginRight: 10 }}>already have an account? </Text>
+          <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
+            <Text style={{ color: '#ff8800', fontWeight: 600, textAlign: 'center' }}>LOGIN</Text>
           </TouchableOpacity>
         </View>
-        <Text style={{ textAlign: 'center', marginTop: 25, fontWeight: 600 }}>Or</Text>
-        <View style={{ flexDirection: 'row', alignSelf: 'center', marginTop: 20 }}>
+        <Text style={{ textAlign: 'center', marginTop: 20, fontWeight: 600 }}>Or</Text>
+        <View style={{ flexDirection: 'row', alignSelf: 'center', marginTop: 15 }}>
           <TouchableOpacity>
             <View style={{ 
               backgroundColor: '#2277aa', 
@@ -92,7 +96,7 @@ export default Login
 const styles = StyleSheet.create ({
   Container: {
     width: '100%',
-    height: '100%',
+    height: '75%',
     backgroundColor: '#020426',
   },
 
@@ -112,7 +116,7 @@ const styles = StyleSheet.create ({
     textAlign: 'center',
     fontSize: 30, 
     fontWeight: 600,
-    marginTop: 140
+    marginTop: 85
   }, 
 
   Deskripsi: {
@@ -124,8 +128,8 @@ const styles = StyleSheet.create ({
 
   Inputemail: {
     backgroundColor: '#ebebeb',
-    padding: 20, 
-    marginTop: 10, 
+    padding: 17, 
+    marginTop: 5, 
     borderRadius: 10
   },
 

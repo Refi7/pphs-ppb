@@ -16,7 +16,7 @@ const Pagedetail = () => {
     const navigation = useNavigation();
     
     const [jumlah, setJumlah] = useState(1);
-    const hargaPerItem = 12; 
+    const hargaPerItem = 53; 
     const tambah = () => {
         setJumlah(prev => prev + 1);
     }
