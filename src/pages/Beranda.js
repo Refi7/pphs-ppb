@@ -1,16 +1,49 @@
 import { View,  Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
+
 import image1 from './image/burgersatu.png'
 import image2 from './image/burgerdua.png'
 import image3 from './image/burger3.png'
 import image4 from './image/burger4.png'
 import image5 from './image/gambarmakanan.png'
+import image6 from './image/back_icon.png';
+import image7 from './image/logolist.png';
+import image8 from './image/logocari.png';
+import image9 from './image/menu.png';
 
 const Beranda = () => {
+  const navigation = useNavigation();
   return(
     <ScrollView>
       <View style={styles.Container}>
         <View style={styles.Header}>
-          <Text>Header</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <View style={styles.Tombolback}>
+                <Image source={image6} style={styles.Iconback}/>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <View style={styles.List}>
+              <Text style={{
+                marginLeft: 25,
+                fontWeight: 600,
+                fontSize: 15,
+              }}>BURGER</Text>
+              <Image source={image7} style={{width: 12, height: 12, marginLeft: 10}}/>
+            </View>
+          </TouchableOpacity>
+          <View style={{flexDirection: 'row'}}>
+            <TouchableOpacity>
+              <View style={styles.Containericoncari}>
+                <Image source={image8} style={styles.Gambarcari}/>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View style={styles.Containericoncari2}>
+                <Image source={image9} style={styles.Gambarcari}/>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
         <Text style={{ fontSize: 25,fontWeight: 600 }}>Popular Burger</Text>
         <View style={styles.Menubarissatu}>
@@ -32,7 +65,7 @@ const Beranda = () => {
                 }}>$40</Text>
 
                 <View style={styles.Containertomboltambah}>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail')}>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
                 </View>
@@ -55,7 +88,7 @@ const Beranda = () => {
                 }}>$60</Text>
 
                 <View style={styles.Containertomboltambah}>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail')}>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
                 </View>
@@ -85,7 +118,7 @@ const Beranda = () => {
                 }}>$40</Text>
 
                 <View style={styles.Containertomboltambah}>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail')}>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
                 </View>
@@ -108,7 +141,7 @@ const Beranda = () => {
                 }}>$40</Text>
 
                 <View style={styles.Containertomboltambah}>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={()=> navigation.navigate('Pagedetail')}>
                     <Text style={styles.Tekstambahimage1}>+</Text>
                   </TouchableOpacity>
                 </View>
@@ -200,6 +233,41 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   }, 
 
+  Tombolback: {
+    backgroundColor: '#dcdcdc',
+    padding: 15,
+    borderRadius: 100,
+  },
+
+  List: {
+    width: 125, 
+    height: 50,
+    borderWidth: 0.5,
+    borderColor: '#dcdcdc',
+    borderRadius: 30,
+    marginLeft: 20,
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+
+  Containericoncari: {
+    backgroundColor: 'black',
+    width: 45,
+    height: 45,
+    justifyContent: 'center',
+    borderRadius: 100, 
+    marginLeft: 35
+  },
+
+  Containericoncari2: {
+    backgroundColor: '#dcdcdc',
+    width: 45,
+    height: 45,
+    justifyContent: 'center',
+    borderRadius: 100,
+    marginLeft: 12
+  },
+
 
   // STYLE TEKS
 
@@ -249,5 +317,16 @@ const styles = StyleSheet.create({
     height: '45%',
     borderRadius: 15,
     marginTop: 20
+  },
+
+  Iconback: {
+    width: 15,
+    height: 15
+  }, 
+
+  Gambarcari: {
+    width: 25, 
+    height: 25,
+    alignSelf: 'center'
   }
 })
